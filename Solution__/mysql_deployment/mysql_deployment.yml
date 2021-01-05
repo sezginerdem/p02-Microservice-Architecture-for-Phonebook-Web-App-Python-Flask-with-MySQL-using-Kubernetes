@@ -32,7 +32,7 @@ spec:
               key: mysql-root-password
         envFrom:
           - configMapRef:
-            name: database-configmap
+              name: database-configmap
         ports:
         - containerPort: 3306
         volumeMounts:

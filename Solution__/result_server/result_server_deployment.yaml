@@ -28,6 +28,6 @@ spec:
                 key: mysql-admin-password
           envFrom:
           - configMapRef:
-            name: database-configmap
+              name: database-configmap
 
 
