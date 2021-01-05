@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-app-deploy
+  labels:
+    name: result-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-app-deploy
+  template:
+    metadata:
+      name: result-app-deploy
+      labels:
+        app: result-app-deploy
+    spec:
+      containers:
+      - name: result-app
+        image: sezgin/phonebook-result
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_PASSWORD
+          value: Clarusway_1
+        - name: MYSQL_USER
+          value: clarus
+        - name: MYSQL_DATABASE
+          value: phonebook
+        - name: MYSQL_DATABASE_HOST
+          value: mysql-service.default.svc.cluster.local

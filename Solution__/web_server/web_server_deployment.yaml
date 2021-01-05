@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phonebook-app-deploy
+  labels:
+    name: phonebook-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phonebook-app-pod
+  template:
+    metadata:
+      name: phonebook-app-pod
+      labels:
+        app: phonebook-app-pod
+    spec:
+      containers:
+      - name: phonebook-app
+        image: sezgin/phonebook-main
+        ports:
+        - containerPort: 80
+        env:
+        - name: MYSQL_PASSWORD
+          value: Clarusway_1
+        - name: MYSQL_USER
+          value: clarus
+        - name: MYSQL_DATABASE
+          value: phonebook
+        - name: MYSQL_DATABASE_HOST
+          value: mysql-service.default.svc.cluster.local
