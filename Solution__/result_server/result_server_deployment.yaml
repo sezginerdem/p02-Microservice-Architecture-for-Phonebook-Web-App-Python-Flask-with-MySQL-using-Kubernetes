@@ -8,24 +8,26 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: result-app-deploy
+      name: result-app-pod
   template:
     metadata:
-      name: result-app-deploy
+      name: result-app-pod
       labels:
-        app: result-app-deploy
+        name: result-app-pod
     spec:
       containers:
-      - name: result-app
-        image: sezgin/phonebook-result
-        ports:
-        - containerPort: 80
-        env:
-        - name: MYSQL_PASSWORD
-          value: Clarusway_1
-        - name: MYSQL_USER
-          value: clarus
-        - name: MYSQL_DATABASE
-          value: phonebook
-        - name: MYSQL_DATABASE_HOST
-          value: mysql-service.default.svc.cluster.local
+        - name: result-app
+          image: sezgin/phonebook-result
+          ports:
+          - containerPort: 80
+          env:
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: mysql-admin-password
+          envFrom:
+          - configMapRef:
+            name: database-configmap
+
+
