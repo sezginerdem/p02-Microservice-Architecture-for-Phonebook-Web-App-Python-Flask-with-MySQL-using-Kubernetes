@@ -8,12 +8,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql-pod
+      name: mysql-pod
   template:
     metadata:
       name: mysql-pod
       labels:
-        app: mysql-pod
+        name: mysql-pod
     spec:
       containers:
       - name: mysql
