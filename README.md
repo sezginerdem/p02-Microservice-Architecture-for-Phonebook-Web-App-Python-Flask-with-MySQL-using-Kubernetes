@@ -1,4 +1,4 @@
-# Project-203: Microservice Architecture for Phonebook Web Application (Python Flask) with MySQL using Kubernetes.
+# Project-02: Microservice Architecture for Phonebook Web Application (Python Flask) with MySQL using Kubernetes.
 
 ## Description
 
