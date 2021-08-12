@@ -195,3 +195,4 @@ SECRETS AND CONFIGMAP
 ## Resources
 
 - [Kubernetes Documentations](https://kubernetes.io/docs/home/)
+
